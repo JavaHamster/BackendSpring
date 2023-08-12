@@ -37,7 +37,7 @@ public class LegoController {
 		return workbench;
 	}
 
-	/**
+	/*
 	 * Setzt den neuen Wert von activeFile und �bergibt diesen auch gleich der
 	 * Viewkomponente.
 	 * 
