@@ -1,4 +1,4 @@
-package io.github.Hattinger04.aop;
+package at.ac.htlinn.hamsterProgram..aop;
 
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
@@ -26,7 +26,7 @@ public class LogAspect {
 		logger.setLevel(Level.ALL);
 	}
 //TODO: update paths
-	@After(("execution(* io.github.Hattinger04.configuration.AuthController.login(..))"))
+	@After(("execution(* at.ac.htlinn.hamsterProgram..configuration.AuthController.login(..))"))
 	public void loginLog(JoinPoint jp) throws Throwable {
 		FileHandler fileHandler = new FileHandler("src/main/resources/allLogs.log", true);
 		logger.addHandler(fileHandler);
@@ -37,7 +37,7 @@ public class LogAspect {
 		fileHandler.close(); 
 	}
 	
-	@Around(("execution(* io.github.Hattinger04.user.UserController.logoutPage(..))"))
+	@Around(("execution(* at.ac.htlinn.hamsterProgram..user.UserController.logoutPage(..))"))
 	public Object logoutLog(ProceedingJoinPoint jp) throws Throwable {
 		Object o; 
 		HttpServletRequest request = (HttpServletRequest) jp.getArgs()[0]; 

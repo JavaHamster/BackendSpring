@@ -35,9 +35,9 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 
 
 @RunWith(SpringRunner.class)
-@EntityScan("io.github.Hattinger04.*")
-@ComponentScan(basePackages = { "io.github.Hattinger04.*" })
-@EnableJpaRepositories(basePackages = "io.github.Hattinger04.*")
+@EntityScan("at.ac.htlinn.hamsterProgram..*")
+@ComponentScan(basePackages = { "at.ac.htlinn.hamsterProgram..*" })
+@EnableJpaRepositories(basePackages = "at.ac.htlinn.hamsterProgram..*")
 @AutoConfigureMockMvc
 @EnableAutoConfiguration
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT, classes = { UserController.class })

@@ -1,9 +1,8 @@
 package at.ac.htlinn.hamsterProgram.hamsterEvaluation.debugger.model;
 
-
-import io.github.Hattinger04.hamsterEvaluation.model.HamsterProgram;
-import io.github.Hattinger04.hamsterEvaluation.model.Instruction;
-import io.github.Hattinger04.hamsterEvaluation.model.InstructionProcessor;
+import at.ac.htlinn.hamsterProgram.hamsterEvaluation.model.HamsterProgram;
+import at.ac.htlinn.hamsterProgram.hamsterEvaluation.model.Instruction;
+import at.ac.htlinn.hamsterProgram.hamsterEvaluation.model.InstructionProcessor;
 
 public class LocalProcessor implements InstructionProcessor, Runnable {
 	public static final String STOP_STRING = "hamster stop";

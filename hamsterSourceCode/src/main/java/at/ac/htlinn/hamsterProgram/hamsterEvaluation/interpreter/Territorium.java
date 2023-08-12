@@ -1,10 +1,11 @@
 package at.ac.htlinn.hamsterProgram.hamsterEvaluation.interpreter;
 
+import at.ac.htlinn.hamsterProgram.hamsterEvaluation.model.HamsterFile;
+import at.ac.htlinn.hamsterProgram.hamsterEvaluation.simulation.model.Terrain;
+import at.ac.htlinn.hamsterProgram.hamsterEvaluation.workbench.Workbench;
+
 import java.io.File;
 
-import io.github.Hattinger04.hamsterEvaluation.model.HamsterFile;
-import io.github.Hattinger04.hamsterEvaluation.simulation.model.Terrain;
-import io.github.Hattinger04.hamsterEvaluation.workbench.Workbench;
 
 /**
  * Die Klasse stellt eine Repraesentation des Hamster-Territoriums dar. Sie

@@ -1,5 +1,8 @@
 package at.ac.htlinn.hamsterProgram.hamsterEvaluation.model;
 
+import at.ac.htlinn.hamsterProgram.hamsterEvaluation.workbench.HamsterFileFilter;
+import at.ac.htlinn.hamsterProgram.hamsterEvaluation.workbench.Utils;
+
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.io.File;
@@ -10,8 +13,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
 
-import at.ac.htlinn.hamsterProgram.hamsterEvaluation.workbench.HamsterFileFilter;
-import at.ac.htlinn.hamsterProgram.hamsterEvaluation.workbench.Utils;
 
 /**
  * Diese Klasse stellt eine einzelnen Datei im Dateisystem dar. Diese Datei kann

@@ -1,19 +1,6 @@
 package at.ac.htlinn.hamsterProgram.hamsterEvaluation.debugger.model;
 
-import io.github.Hattinger04.hamsterEvaluation.model.CreateInstruction;
-import io.github.Hattinger04.hamsterEvaluation.model.HamsterInitialisierungsException;
-import io.github.Hattinger04.hamsterEvaluation.model.HamsterInitializationException;
-import io.github.Hattinger04.hamsterEvaluation.model.HamsterInstruction;
-import io.github.Hattinger04.hamsterEvaluation.model.HamsterNichtInitialisiertException;
-import io.github.Hattinger04.hamsterEvaluation.model.HamsterNotInitializedException;
-import io.github.Hattinger04.hamsterEvaluation.model.InstructionProcessor;
-import io.github.Hattinger04.hamsterEvaluation.model.KachelLeerException;
-import io.github.Hattinger04.hamsterEvaluation.model.MauerDaException;
-import io.github.Hattinger04.hamsterEvaluation.model.MaulLeerException;
-import io.github.Hattinger04.hamsterEvaluation.model.MouthEmptyException;
-import io.github.Hattinger04.hamsterEvaluation.model.WallInFrontException;
-import io.github.Hattinger04.hamsterEvaluation.model.TileEmptyException;
-
+import at.ac.htlinn.hamsterProgram.hamsterEvaluation.model.*;
 import at.ac.htlinn.hamsterProgram.hamsterEvaluation.workbench.Utils;
 
 /**

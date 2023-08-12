@@ -6,21 +6,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Observable;
 
-import io.github.Hattinger04.hamsterEvaluation.lego.model.KornDaException;
-import io.github.Hattinger04.hamsterEvaluation.lego.model.MaulNichtLeerException;
-import io.github.Hattinger04.hamsterEvaluation.model.CreateInstruction;
-import io.github.Hattinger04.hamsterEvaluation.model.HamsterException;
-import io.github.Hattinger04.hamsterEvaluation.model.HamsterInitialisierungsException;
-import io.github.Hattinger04.hamsterEvaluation.model.HamsterInstruction;
-import io.github.Hattinger04.hamsterEvaluation.model.Instruction;
-import io.github.Hattinger04.hamsterEvaluation.model.InstructionProcessor;
-import io.github.Hattinger04.hamsterEvaluation.model.KachelLeerException;
-import io.github.Hattinger04.hamsterEvaluation.model.MauerDaException;
-import io.github.Hattinger04.hamsterEvaluation.model.MaulLeerException;
-import io.github.Hattinger04.hamsterEvaluation.model.TerminalInstruction;
-import io.github.Hattinger04.hamsterEvaluation.model.TerrainCellInstruction;
-import io.github.Hattinger04.hamsterEvaluation.model.TerrainInstruction;
-import io.github.Hattinger04.hamsterEvaluation.workbench.Workbench;
+import at.ac.htlinn.hamsterProgram.hamsterEvaluation.lego.model.KornDaException;
+import at.ac.htlinn.hamsterProgram.hamsterEvaluation.lego.model.MaulNichtLeerException;
+import at.ac.htlinn.hamsterProgram.hamsterEvaluation.model.*;
+import at.ac.htlinn.hamsterProgram.hamsterEvaluation.workbench.Workbench;
 
 /**
  * Dies ist das Model der Simulationskomponente. Es implementiert das
@@ -168,7 +157,7 @@ public class SimulationModel extends Observable implements InstructionProcessor 
 		setChanged();
 		notifyObservers(TERRAIN);
 		savedTerrain = null;
-		// io.github.Hattinger04.hamsterEvaluation.workbench.Workbench.getWorkbench().getSimulation()
+		// at.ac.htlinn.hamsterProgram..hamsterEvaluation.workbench.Workbench.getWorkbench().getSimulation()
 		// .getSimulationTools().getResetAction().setEnabled(false);
 
 		// Prolog

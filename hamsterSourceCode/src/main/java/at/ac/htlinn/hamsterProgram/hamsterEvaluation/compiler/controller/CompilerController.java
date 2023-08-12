@@ -3,8 +3,8 @@ package at.ac.htlinn.hamsterProgram.hamsterEvaluation.compiler.controller;
 import java.io.File;
 import java.io.IOException;
 
-import io.github.Hattinger04.hamsterEvaluation.compiler.model.CompilerModel;
-import io.github.Hattinger04.hamsterEvaluation.model.HamsterFile;
+import at.ac.htlinn.hamsterProgram.hamsterEvaluation.compiler.model.CompilerModel;
+import at.ac.htlinn.hamsterProgram.hamsterEvaluation.model.HamsterFile;
 import at.ac.htlinn.hamsterProgram.hamsterEvaluation.workbench.Workbench;
 
 /**

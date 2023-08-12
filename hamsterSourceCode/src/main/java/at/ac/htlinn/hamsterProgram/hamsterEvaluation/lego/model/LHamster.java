@@ -1,7 +1,6 @@
 package at.ac.htlinn.hamsterProgram.hamsterEvaluation.lego.model;
 
-import io.github.Hattinger04.hamsterEvaluation.model.*;
-
+import at.ac.htlinn.hamsterProgram.hamsterEvaluation.model.*;
 import at.ac.htlinn.hamsterProgram.hamsterEvaluation.workbench.Workbench;
 
 /**

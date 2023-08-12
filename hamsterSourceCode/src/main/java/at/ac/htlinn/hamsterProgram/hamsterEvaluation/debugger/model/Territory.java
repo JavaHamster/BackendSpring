@@ -3,9 +3,6 @@ package at.ac.htlinn.hamsterProgram.hamsterEvaluation.debugger.model;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import io.github.Hattinger04.hamsterEvaluation.model.InstructionProcessor;
-import io.github.Hattinger04.hamsterEvaluation.model.TerrainCellInstruction;
-import io.github.Hattinger04.hamsterEvaluation.model.TerrainInstruction;
 
 /**
  * @author $Author: djasper $

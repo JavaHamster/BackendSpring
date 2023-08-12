@@ -1,8 +1,9 @@
 package at.ac.htlinn.hamsterProgram.hamsterEvaluation.interpreter;
 
+import at.ac.htlinn.hamsterProgram.hamsterEvaluation.workbench.Workbench;
+
 import java.util.ArrayList;
 
-import io.github.Hattinger04.hamsterEvaluation.workbench.Workbench;
 
 /**
  * 
@@ -137,7 +138,7 @@ public class Hamster {
 					spalte, blickrichtung, anzahlKoerner, -1);
 			this._intern_init = true;
 			_intern_hamsters.add(this);
-		} catch (io.github.Hattinger04.hamsterEvaluation.model.HamsterNichtInitialisiertException exc) {
+		} catch (at.ac.htlinn.hamsterProgram.hamsterEvaluation.model.HamsterNichtInitialisiertException exc) {
 			throw new HamsterInitialisierungsException(this);
 		} finally {
 			sleep();
@@ -161,9 +162,9 @@ public class Hamster {
 		try {
 			checkInit("vor()");
 			Workbench.getWorkbench().getSimulationController().getSimulationModel().forward(this._intern_id);
-		} catch (io.github.Hattinger04.hamsterEvaluation.model.HamsterNichtInitialisiertException exc) {
+		} catch (at.ac.htlinn.hamsterProgram.hamsterEvaluation.model.HamsterNichtInitialisiertException exc) {
 			throw new HamsterNichtInitialisiertException(this);
-		} catch (io.github.Hattinger04.hamsterEvaluation.model.MauerDaException exc) {
+		} catch (at.ac.htlinn.hamsterProgram.hamsterEvaluation.model.MauerDaException exc) {
 			throw new MauerDaException(this, exc.getReihe(), exc.getSpalte());
 		} finally {
 			sleep();
@@ -182,7 +183,7 @@ public class Hamster {
 		try {
 			checkInit("linksUm()");
 			Workbench.getWorkbench().getSimulationController().getSimulationModel().turnLeft(this._intern_id);
-		} catch (io.github.Hattinger04.hamsterEvaluation.model.HamsterNichtInitialisiertException exc) {
+		} catch (at.ac.htlinn.hamsterProgram.hamsterEvaluation.model.HamsterNichtInitialisiertException exc) {
 			throw new HamsterNichtInitialisiertException(this);
 		} finally {
 			sleep();
@@ -203,9 +204,9 @@ public class Hamster {
 		try {
 			checkInit("gib()");
 			Workbench.getWorkbench().getSimulationController().getSimulationModel().layDown(this._intern_id);
-		} catch (io.github.Hattinger04.hamsterEvaluation.model.HamsterNichtInitialisiertException exc) {
+		} catch (at.ac.htlinn.hamsterProgram.hamsterEvaluation.model.HamsterNichtInitialisiertException exc) {
 			throw new HamsterNichtInitialisiertException(this);
-		} catch (io.github.Hattinger04.hamsterEvaluation.model.MaulLeerException exc) {
+		} catch (at.ac.htlinn.hamsterProgram.hamsterEvaluation.model.MaulLeerException exc) {
 			throw new MaulLeerException(this);
 		} finally {
 			sleep();
@@ -227,9 +228,9 @@ public class Hamster {
 		try {
 			checkInit("nimm()");
 			Workbench.getWorkbench().getSimulationController().getSimulationModel().pickUp(this._intern_id);
-		} catch (io.github.Hattinger04.hamsterEvaluation.model.HamsterNichtInitialisiertException exc) {
+		} catch (at.ac.htlinn.hamsterProgram.hamsterEvaluation.model.HamsterNichtInitialisiertException exc) {
 			throw new HamsterNichtInitialisiertException(this);
-		} catch (io.github.Hattinger04.hamsterEvaluation.model.KachelLeerException exc) {
+		} catch (at.ac.htlinn.hamsterProgram.hamsterEvaluation.model.KachelLeerException exc) {
 			throw new KachelLeerException(this, exc.getReihe(), exc.getSpalte());
 		} finally {
 			sleep();
@@ -252,7 +253,7 @@ public class Hamster {
 			checkInit("vornFrei()");
 			boolean res = Workbench.getWorkbench().getSimulationController().getSimulationModel().free(this._intern_id);
 			return res;
-		} catch (io.github.Hattinger04.hamsterEvaluation.model.HamsterNichtInitialisiertException exc) {
+		} catch (at.ac.htlinn.hamsterProgram.hamsterEvaluation.model.HamsterNichtInitialisiertException exc) {
 			throw new HamsterNichtInitialisiertException(this);
 		} finally {
 			sleep();
@@ -275,7 +276,7 @@ public class Hamster {
 			boolean res = Workbench.getWorkbench().getSimulationController().getSimulationModel()
 					.mouthEmpty(this._intern_id);
 			return res;
-		} catch (io.github.Hattinger04.hamsterEvaluation.model.HamsterNichtInitialisiertException exc) {
+		} catch (at.ac.htlinn.hamsterProgram.hamsterEvaluation.model.HamsterNichtInitialisiertException exc) {
 			throw new HamsterNichtInitialisiertException(this);
 		} finally {
 			sleep();
@@ -296,7 +297,7 @@ public class Hamster {
 			boolean res = Workbench.getWorkbench().getSimulationController().getSimulationModel()
 					.cornAvailable(this._intern_id);
 			return res;
-		} catch (io.github.Hattinger04.hamsterEvaluation.model.HamsterNichtInitialisiertException exc) {
+		} catch (at.ac.htlinn.hamsterProgram.hamsterEvaluation.model.HamsterNichtInitialisiertException exc) {
 			throw new HamsterNichtInitialisiertException(this);
 		} finally {
 			sleep();
@@ -333,7 +334,7 @@ public class Hamster {
 	public int getReihe() throws HamsterNichtInitialisiertException {
 		try {
 			checkInit("getReihe()");
-			io.github.Hattinger04.hamsterEvaluation.simulation.model.Hamster h = Workbench.getWorkbench().getSimulationController()
+			at.ac.htlinn.hamsterProgram.hamsterEvaluation.simulation.model.Hamster h = Workbench.getWorkbench().getSimulationController()
 					.getSimulationModel().getHamster(this._intern_id);
 			int res = h.getY();
 			return res;
@@ -355,7 +356,7 @@ public class Hamster {
 	public int getSpalte() throws HamsterNichtInitialisiertException {
 		try {
 			checkInit("getSpalte()");
-			io.github.Hattinger04.hamsterEvaluation.simulation.model.Hamster h = Workbench.getWorkbench().getSimulationController()
+			at.ac.htlinn.hamsterProgram.hamsterEvaluation.simulation.model.Hamster h = Workbench.getWorkbench().getSimulationController()
 					.getSimulationModel().getHamster(this._intern_id);
 			int res = h.getX();
 			return res;
@@ -376,7 +377,7 @@ public class Hamster {
 	public int getBlickrichtung() throws HamsterNichtInitialisiertException {
 		try {
 			checkInit("getBlickrichtung()");
-			io.github.Hattinger04.hamsterEvaluation.simulation.model.Hamster h = Workbench.getWorkbench().getSimulationController()
+			at.ac.htlinn.hamsterProgram.hamsterEvaluation.simulation.model.Hamster h = Workbench.getWorkbench().getSimulationController()
 					.getSimulationModel().getHamster(this._intern_id);
 			int res = h.getDir();
 			return res;
@@ -398,7 +399,7 @@ public class Hamster {
 	public int getAnzahlKoerner() throws HamsterNichtInitialisiertException {
 		try {
 			checkInit("getAnzahlKoerner()");
-			io.github.Hattinger04.hamsterEvaluation.simulation.model.Hamster h = Workbench.getWorkbench().getSimulationController()
+			at.ac.htlinn.hamsterProgram.hamsterEvaluation.simulation.model.Hamster h = Workbench.getWorkbench().getSimulationController()
 					.getSimulationModel().getHamster(this._intern_id);
 			int res = h.getMouth();
 			return res;
@@ -469,9 +470,9 @@ public class Hamster {
 	// if (!ham._intern_init) {
 	// res = this._intern_init == ham._intern_init;
 	// } else {
-	// io.github.Hattinger04.hamsterEvaluation.simulation.model.Hamster hThis = _intern_simulationModel
+	// at.ac.htlinn.hamsterProgram.hamsterEvaluation.simulation.model.Hamster hThis = _intern_simulationModel
 	// .getHamster(this._intern_id);
-	// io.github.Hattinger04.hamsterEvaluation.simulation.model.Hamster hOther = _intern_simulationModel
+	// at.ac.htlinn.hamsterProgram.hamsterEvaluation.simulation.model.Hamster hOther = _intern_simulationModel
 	// .getHamster(ham._intern_id);
 	// res = this._intern_init == ham._intern_init
 	// && hThis.getY() == hOther.getY()
@@ -502,7 +503,7 @@ public class Hamster {
 		} else {
 			int a = 0;
 			String b = "";
-			io.github.Hattinger04.hamsterEvaluation.simulation.model.Hamster hThis = Workbench.getWorkbench().getSimulationController()
+			at.ac.htlinn.hamsterProgram.hamsterEvaluation.simulation.model.Hamster hThis = Workbench.getWorkbench().getSimulationController()
 					.getSimulationModel().getHamster(this._intern_id);
 			switch (hThis.getDir()) {
 			case NORD:

@@ -1,7 +1,7 @@
 package at.ac.htlinn.hamsterProgram.hamsterEvaluation.debugger.controller;
 
-import io.github.Hattinger04.hamsterEvaluation.debugger.model.DebuggerModel;
-import io.github.Hattinger04.hamsterEvaluation.model.HamsterFile;
+import at.ac.htlinn.hamsterProgram.hamsterEvaluation.debugger.model.DebuggerModel;
+import at.ac.htlinn.hamsterProgram.hamsterEvaluation.model.HamsterFile;
 import at.ac.htlinn.hamsterProgram.hamsterEvaluation.workbench.Workbench;
 
 /**

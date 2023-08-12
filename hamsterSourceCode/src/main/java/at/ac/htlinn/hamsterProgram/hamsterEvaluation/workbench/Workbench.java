@@ -7,12 +7,12 @@ import java.util.Properties;
 import java.util.Scanner;
 import java.util.TreeMap;
 
-import io.github.Hattinger04.hamsterEvaluation.compiler.controller.CompilerController;
-import io.github.Hattinger04.hamsterEvaluation.debugger.controller.DebuggerController;
-import io.github.Hattinger04.hamsterEvaluation.debugger.model.DebuggerModel;
+import at.ac.htlinn.hamsterProgram.hamsterEvaluation.compiler.controller.CompilerController;
+import at.ac.htlinn.hamsterProgram.hamsterEvaluation.debugger.controller.DebuggerController;
+import at.ac.htlinn.hamsterProgram.hamsterEvaluation.debugger.model.DebuggerModel;
 import at.ac.htlinn.hamsterProgram.hamsterEvaluation.interpreter.Territorium;
-import io.github.Hattinger04.hamsterEvaluation.lego.controller.LegoController;
-import io.github.Hattinger04.hamsterEvaluation.model.HamsterFile;
+import at.ac.htlinn.hamsterProgram.hamsterEvaluation.lego.controller.LegoController;
+import at.ac.htlinn.hamsterProgram.hamsterEvaluation.model.HamsterFile;
 import at.ac.htlinn.hamsterProgram.hamsterEvaluation.simulation.controller.SimulationController;
 import at.ac.htlinn.hamsterProgram.hamsterEvaluation.simulation.model.SimulationModel;
 import at.ac.htlinn.hamsterProgram.hamsterEvaluation.simulation.model.Terrain;
@@ -105,7 +105,7 @@ public class Workbench {
 	 */
 	public TreeMap<String, String> startProgram(String path) {
 		debugger.getDebuggerModel().setState(DebuggerModel.NOT_RUNNING);
-		HamsterFile file = HamsterFile.createHamsterFile(path, HamsterFile.OBJECT); 
+		HamsterFile file = HamsterFile.createHamsterFile(path, HamsterFile.OBJECT);
 		compiler.setActiveFile(file);
 		file.setType(HamsterFile.OBJECT);
 		ensureCompiled(file);

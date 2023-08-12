@@ -1,8 +1,9 @@
 package at.ac.htlinn.hamsterProgram.hamsterEvaluation.compiler.model;
 
+import at.ac.htlinn.hamsterProgram.hamsterEvaluation.model.HamsterFile;
+
 import java.util.LinkedList;
 
-import io.github.Hattinger04.hamsterEvaluation.model.HamsterFile;
 
 /**
  * Diese Klasse repraesentiert einen Fehler, der bei der Compilierung mit dem

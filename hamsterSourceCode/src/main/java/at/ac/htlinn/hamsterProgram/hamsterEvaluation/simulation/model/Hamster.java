@@ -12,7 +12,7 @@ public class Hamster {
 	protected int y;
 	protected int dir;
 	protected int mouth;
-	protected int color = io.github.Hattinger04.hamsterEvaluation.workbench.Utils.COLOR;
+	protected int color = at.ac.htlinn.hamsterProgram.hamsterEvaluation.workbench.Utils.COLOR;
 
 	public Hamster(int id, int x, int y, int dir, int mouth, int c) {
 		this(id);

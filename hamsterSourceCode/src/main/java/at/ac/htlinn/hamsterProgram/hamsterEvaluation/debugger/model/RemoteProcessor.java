@@ -9,9 +9,9 @@ import java.io.OutputStream;
 import java.io.PrintStream;
 
 
-import io.github.Hattinger04.hamsterEvaluation.model.HamsterException;
-import io.github.Hattinger04.hamsterEvaluation.model.Instruction;
-import io.github.Hattinger04.hamsterEvaluation.model.InstructionProcessor;
+import at.ac.htlinn.hamsterProgram.hamsterEvaluation.model.HamsterException;
+import at.ac.htlinn.hamsterProgram.hamsterEvaluation.model.Instruction;
+import at.ac.htlinn.hamsterProgram.hamsterEvaluation.model.InstructionProcessor;
 
 /**
  * Diese Klasse dient zur Weiterleitung von Hamsterbefehlen durch einen Ein- und

@@ -1,9 +1,10 @@
 package at.ac.htlinn.hamsterProgram.hamsterEvaluation.simulation.model;
 
+import at.ac.htlinn.hamsterProgram.hamsterEvaluation.workbench.Utils;
+
 import java.util.ArrayList;
 import java.util.regex.Pattern;
 
-import io.github.Hattinger04.hamsterEvaluation.workbench.Utils;
 
 /**
  * @author Daniel
@@ -93,7 +94,7 @@ public class Terrain {
 
 	private void setDefault(int x, int y, int dir) {
 		defaultHamster = new Hamster(-1, x, y, dir, 0,
-				io.github.Hattinger04.hamsterEvaluation.debugger.model.IHamster.$i$defColor);
+				at.ac.htlinn.hamsterProgram.hamsterEvaluation.debugger.model.IHamster.$i$defColor);
 	}
 
 	private boolean inside(int row, int col) {

@@ -21,7 +21,7 @@ public class Test {
         
 }
 /*
-// package io.github.Hattinger04.hamsterEvaluation.lego.model;
+// package at.ac.htlinn.hamsterProgram..hamsterEvaluation.lego.model;
 //
 //import lejos.navigation.Pilot;
 //import lejos.nxt.LCD;

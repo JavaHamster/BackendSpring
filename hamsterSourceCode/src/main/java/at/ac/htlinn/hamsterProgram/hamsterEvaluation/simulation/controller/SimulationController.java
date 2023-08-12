@@ -1,15 +1,12 @@
 package at.ac.htlinn.hamsterProgram.hamsterEvaluation.simulation.controller;
 
+import at.ac.htlinn.hamsterProgram.hamsterEvaluation.simulation.model.SimulationModel;
+import at.ac.htlinn.hamsterProgram.hamsterEvaluation.workbench.Workbench;
+
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import io.github.Hattinger04.hamsterEvaluation.model.HamsterFile;
-import io.github.Hattinger04.hamsterEvaluation.simulation.model.SimulationModel;
-import io.github.Hattinger04.hamsterEvaluation.simulation.model.Terrain;
-import io.github.Hattinger04.hamsterEvaluation.workbench.HamsterFileFilter;
-import io.github.Hattinger04.hamsterEvaluation.workbench.Utils;
-import io.github.Hattinger04.hamsterEvaluation.workbench.Workbench;
 
 /**
  * @author $Author: djasper $

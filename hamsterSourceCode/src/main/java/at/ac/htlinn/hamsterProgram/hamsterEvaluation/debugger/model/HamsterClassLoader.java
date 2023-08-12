@@ -6,8 +6,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.security.SecureClassLoader;
 
-import io.github.Hattinger04.hamsterEvaluation.model.HamsterFile;
-import io.github.Hattinger04.hamsterEvaluation.model.HamsterProgram;
+import at.ac.htlinn.hamsterProgram.hamsterEvaluation.model.HamsterFile;
+import at.ac.htlinn.hamsterProgram.hamsterEvaluation.model.HamsterProgram;
 import at.ac.htlinn.hamsterProgram.hamsterEvaluation.workbench.Utils;
 
 /**

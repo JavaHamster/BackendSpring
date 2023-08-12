@@ -1,10 +1,10 @@
 package at.ac.htlinn.hamsterProgram.hamsterEvaluation.compiler.model;
 
+import at.ac.htlinn.hamsterProgram.hamsterEvaluation.model.HamsterFile;
+
 import java.io.IOException;
 import java.util.List;
 import java.util.Observable;
-
-import io.github.Hattinger04.hamsterEvaluation.model.HamsterFile;
 
 /**
  * Dies ist das Model der Compiler Komponente. Es kombiniert im Wesentlichen Den

@@ -1,8 +1,8 @@
 package at.ac.htlinn.hamsterProgram.hamsterEvaluation.debugger.model;
 
 import java.util.ArrayList; // dibo
-import io.github.Hattinger04.hamsterEvaluation.model.*;
-import io.github.Hattinger04.hamsterEvaluation.workbench.*;
+
+import at.ac.htlinn.hamsterProgram.hamsterEvaluation.model.*;
 
 // dibo 27.06.2007
 class HamsterThreadExcHandler implements Thread.UncaughtExceptionHandler {

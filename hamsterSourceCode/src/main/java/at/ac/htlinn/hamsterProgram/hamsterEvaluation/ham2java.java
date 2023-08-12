@@ -1,16 +1,17 @@
 package at.ac.htlinn.hamsterProgram.hamsterEvaluation;
 
+import at.ac.htlinn.hamsterProgram.hamsterEvaluation.compiler.model.Precompiler;
+import at.ac.htlinn.hamsterProgram.hamsterEvaluation.model.HamsterFile;
+
 import java.io.File;
 
-import io.github.Hattinger04.hamsterEvaluation.compiler.model.Precompiler;
-import io.github.Hattinger04.hamsterEvaluation.model.HamsterFile;
 
 public class ham2java {
 
 	public static void main(String[] args) {
 		 if (args  .length != 1) {
 			System.out.println("Aufruf: java -classpath hamstersimulator.jar;tools.jar "
-					+ "io.github.Hattinger04.hamsterEvaluation.ham2java <ham-Datei>");
+					+ "at.ac.htlinn.hamsterProgram..hamsterEvaluation.ham2java <ham-Datei>");
 			return;
 		}
 
@@ -21,7 +22,7 @@ public class ham2java {
 		File hamFile = new File(hamProgramm);
 		if (!hamFile.exists()) {
 			System.out.println("Aufruf: java -classpath hamstersimulator.jar;tools.jar "
-					+ "io.github.Hattinger04.hamsterEvaluation.ham2java <ham-Datei>");
+					+ "at.ac.htlinn.hamsterProgram..hamsterEvaluation.ham2java <ham-Datei>");
 			System.out.println("Fehler: Sie haben keine gueltige"
 					+ " Hamster-Programm-Datei" + " angegeben! ");
 			return;

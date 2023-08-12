@@ -1,7 +1,7 @@
 package at.ac.htlinn.hamsterProgram.hamsterEvaluation.lego.controller;
 
-import io.github.Hattinger04.hamsterEvaluation.lego.model.*;
-//import io.github.Hattinger04.hamsterEvaluation.lego.view.Browser;
+//import at.ac.htlinn.hamsterProgram..hamsterEvaluation.lego.view.Browser;
+import at.ac.htlinn.hamsterProgram.hamsterEvaluation.lego.model.LegoModel;
 import at.ac.htlinn.hamsterProgram.hamsterEvaluation.model.HamsterFile;
 import at.ac.htlinn.hamsterProgram.hamsterEvaluation.workbench.Workbench;
 import java.io.IOException;

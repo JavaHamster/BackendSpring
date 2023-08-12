@@ -1,6 +1,6 @@
 package at.ac.htlinn.hamsterProgram.hamsterEvaluation.simulation.model;
 
-import io.github.Hattinger04.hamsterEvaluation.model.Instruction;
+import at.ac.htlinn.hamsterProgram.hamsterEvaluation.model.Instruction;
 
 /**
  * 

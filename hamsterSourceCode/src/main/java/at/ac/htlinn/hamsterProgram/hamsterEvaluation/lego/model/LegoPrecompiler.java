@@ -62,12 +62,12 @@ public class LegoPrecompiler {
 //                                t = nextToken(lexer);
 //                        t = nextToken(lexer);
 //                }
-////                out.print("import io.github.Hattinger04.hamsterEvaluation.lego.model.LegoHamster; ");
+////                out.print("import at.ac.htlinn.hamsterProgram..hamsterEvaluation.lego.model.LegoHamster; ");
 //                if (t != null) {
 //                        out.print(text.substring(pos, t.getStart()));
 //                        pos = t.getStart();
 //                        out.print("public class " + className
-//                                + " extends io.github.Hattinger04.hamsterEvaluation.lego.model.LegoHamster { ");
+//                                + " extends at.ac.htlinn.hamsterProgram..hamsterEvaluation.lego.model.LegoHamster { ");
 //                }
 //                
 //                String test = " ";
@@ -157,12 +157,12 @@ public class LegoPrecompiler {
                                 t = nextToken(lexer);
                         t = nextToken(lexer);
                 }
-//                out.print("import io.github.Hattinger04.hamsterEvaluation.lego.model.LegoHamster; ");
+//                out.print("import at.ac.htlinn.hamsterProgram..hamsterEvaluation.lego.model.LegoHamster; ");
                 if (t != null) {
                         out.print(text.substring(pos, t.getStart()));
                         pos = t.getStart();
                         out.print("public class " + className
-                                + " extends io.github.Hattinger04.hamsterEvaluation.lego.model.LegoHamster { ");
+                                + " extends at.ac.htlinn.hamsterProgram..hamsterEvaluation.lego.model.LegoHamster { ");
                 }
 
 		while (t != null && !(type == HamsterFile.HAMSTERCLASS)) {

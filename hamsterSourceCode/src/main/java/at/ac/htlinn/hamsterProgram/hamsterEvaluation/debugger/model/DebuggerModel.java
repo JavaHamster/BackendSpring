@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Observable;
 
+import at.ac.htlinn.hamsterProgram.hamsterEvaluation.model.HamsterFile;
+import at.ac.htlinn.hamsterProgram.hamsterEvaluation.model.InstructionProcessor;
 import com.sun.jdi.AbsentInformationException;
 import com.sun.jdi.Bootstrap;
 import com.sun.jdi.IncompatibleThreadStateException;
@@ -31,8 +33,6 @@ import com.sun.jdi.request.EventRequestManager;
 import com.sun.jdi.request.MethodEntryRequest;
 import com.sun.jdi.request.StepRequest;
 
-import io.github.Hattinger04.hamsterEvaluation.model.HamsterFile;
-import io.github.Hattinger04.hamsterEvaluation.model.InstructionProcessor;
 import at.ac.htlinn.hamsterProgram.hamsterEvaluation.simulation.model.SimulationModel;
 import at.ac.htlinn.hamsterProgram.hamsterEvaluation.workbench.Utils;
 import at.ac.htlinn.hamsterProgram.hamsterEvaluation.workbench.Workbench;
@@ -145,7 +145,7 @@ public class DebuggerModel extends Observable implements Runnable {
 
 		if (Utils.runlocally) {
 			IHamster.processor = this.localProcessor;
-			/* lego */io.github.Hattinger04.hamsterEvaluation.lego.model.LHamster.processor = this.localProcessor;
+			/* lego */at.ac.htlinn.hamsterProgram.hamsterEvaluation.lego.model.LHamster.processor = this.localProcessor;
 			Territorium.processor = this.localProcessor;
 			Hamster.count = 0;
 			this.localProcessor.start();
@@ -302,7 +302,7 @@ public class DebuggerModel extends Observable implements Runnable {
 			this.lockedFiles.add(file);
 		} else {
 			if (ref.name().startsWith("java.") || ref.name().startsWith("javax.")
-					|| ref.name().startsWith("io.github.Hattinger04.hamsterEvaluation.") || ref.name().startsWith("sun.")) {
+					|| ref.name().startsWith("at.ac.htlinn.hamsterProgram..hamsterEvaluation.") || ref.name().startsWith("sun.")) {
 				return;
 			}
 			this.lockedRefs.add(ref);
@@ -384,7 +384,7 @@ public class DebuggerModel extends Observable implements Runnable {
 		this.stepRequest.addClassExclusionFilter("java.*");
 		this.stepRequest.addClassExclusionFilter("javax.*");
 		this.stepRequest.addClassExclusionFilter("sun.*");
-		this.stepRequest.addClassExclusionFilter("io.github.Hattinger04.hamsterEvaluation.*");
+		this.stepRequest.addClassExclusionFilter("at.ac.htlinn.hamsterProgram..hamsterEvaluation.*");
 		this.stepRequest.addCountFilter(1);
 		this.stepRequest.enable();
 		ThreadReference st = this.suspendedThread;

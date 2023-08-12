@@ -1,8 +1,8 @@
 package at.ac.htlinn.hamsterProgram.hamsterEvaluation.workbench;
 
-import io.github.Hattinger04.hamsterEvaluation.debugger.model.DebuggerModel;
-import io.github.Hattinger04.hamsterEvaluation.compiler.model.CompilerModel;
-import io.github.Hattinger04.hamsterEvaluation.lego.model.LegoModel;
+import at.ac.htlinn.hamsterProgram.hamsterEvaluation.compiler.model.CompilerModel;
+import at.ac.htlinn.hamsterProgram.hamsterEvaluation.debugger.model.DebuggerModel;
+import at.ac.htlinn.hamsterProgram.hamsterEvaluation.lego.model.LegoModel;
 import at.ac.htlinn.hamsterProgram.hamsterEvaluation.simulation.model.SimulationModel;
 
 /**

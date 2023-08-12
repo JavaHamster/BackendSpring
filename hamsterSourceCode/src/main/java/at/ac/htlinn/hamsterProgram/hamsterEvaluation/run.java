@@ -2,11 +2,11 @@ package at.ac.htlinn.hamsterProgram.hamsterEvaluation;
 
 import java.util.Locale;
 
-import io.github.Hattinger04.hamsterEvaluation.model.HamsterFile;
+import at.ac.htlinn.hamsterProgram.hamsterEvaluation.model.HamsterFile;
+import at.ac.htlinn.hamsterProgram.hamsterEvaluation.simulation.model.SimulationModel;
 import at.ac.htlinn.hamsterProgram.hamsterEvaluation.simulation.model.Terrain;
 import at.ac.htlinn.hamsterProgram.hamsterEvaluation.workbench.Utils;
 import at.ac.htlinn.hamsterProgram.hamsterEvaluation.workbench.Workbench;
-import io.github.Hattinger04.hamsterEvaluation.simulation.model.*;
 import java.io.*;
 
 public class run {
@@ -15,7 +15,7 @@ public class run {
 		if (args.length < 1) {
 			System.out
 					.println("Aufruf: java -classpath hamstersimulator.jar;tools.jar "
-							+ "io.github.Hattinger04.hamsterEvaluation.run <ham-Programm> [<territorium-Datei>]");
+							+ "at.ac.htlinn.hamsterProgram..hamsterEvaluation.run <ham-Programm> [<territorium-Datei>]");
 			return;
 		}
 
@@ -27,7 +27,7 @@ public class run {
 		if (!hamFile.exists()) {
 			System.out
 					.println("Aufruf: java -classpath hamstersimulator.jar;tools.jar "
-							+ "io.github.Hattinger04.hamsterEvaluation.run <ham-Programm> [<territorium-Datei>]");
+							+ "at.ac.htlinn.hamsterProgram..hamsterEvaluation.run <ham-Programm> [<territorium-Datei>]");
 			System.out.println("Fehler: Sie haben kein gueltiges"
 					+ " compiliertes Hamster-Programm" + " angegeben! ");
 			return;
@@ -43,7 +43,7 @@ public class run {
 			if (!terrFile.exists()) {
 				System.out
 						.println("Aufruf: java -classpath hamstersimulator.jar;tools.jar "
-								+ "io.github.Hattinger04.hamsterEvaluation.run <ham-Programm> [<territorium-Datei>]");
+								+ "at.ac.htlinn.hamsterProgram..hamsterEvaluation.run <ham-Programm> [<territorium-Datei>]");
 				System.out.println("Fehler: Sie haben keine gueltige"
 						+ " Territorium-Datei" + " angegeben! ");
 				return;
