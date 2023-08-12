@@ -34,12 +34,12 @@ public class CourseController {
 	
 	// TODO: check if teacher is in course when making rest request!
 	
-	/**
-	 * Get student by id from database Needs as @PathVariable student_id
-	 * 
-	 * @param json
-	 * @return
-	 */
+//	/**
+//	 * Get student by id from database Needs as @PathVariable student_id
+//	 *
+//	 * @param json
+//	 * @return
+//	 */
 	@GetMapping("/students")
 	@PreAuthorize("hasAuthority('DEV')")
 	public ResponseEntity<?> getStudents() {
@@ -48,12 +48,12 @@ public class CourseController {
 	}
 		
 	
-	/**
-	 * Get student by id from database Needs as @PathVariable student_id
-	 * 
-	 * @param json
-	 * @return
-	 */
+//	/**
+//	 * Get student by id from database Needs as @PathVariable student_id
+//	 *
+//	 * @param json
+//	 * @return
+//	 */
 	@GetMapping("/students/{id}")
 	@PreAuthorize("hasAuthority('DEV')")
 	public ResponseEntity<?> getStudentByID(@PathVariable long id) {
@@ -65,13 +65,13 @@ public class CourseController {
 	}
 		
 
-	/**
-	 * Get student from course by id from database 
-	 * Needs as @PathVariable student_id and courseid
-	 * 
-	 * @param json
-	 * @return
-	 */
+//	/**
+//	 * Get student from course by id from database
+//	 * Needs as @PathVariable student_id and courseid
+//	 *
+//	 * @param json
+//	 * @return
+//	 */
 	@GetMapping("/course/{courseid}/students/{studentid}")
 	@PreAuthorize("hasAuthority('TEACHER')")
 	public ResponseEntity<?> getStudentInCourseByCourseID(@PathVariable long courseid, @PathVariable long studentid) {
@@ -86,12 +86,12 @@ public class CourseController {
 	}
 
 	
-	/**
-	 * Get all students in Course from database Needs as @PathVariable course_id
-	 * 
-	 * @param json
-	 * @return
-	 */
+//	/**
+//	 * Get all students in Course from database Needs as @PathVariable course_id
+//	 *
+//	 * @param json
+//	 * @return
+//	 */
 	@GetMapping("/course/{id}/students")
 	@PreAuthorize("hasAuthority('TEACHER')")
 	public ResponseEntity<?> getAllStudentsByCourseID(@PathVariable long id) {
@@ -107,12 +107,12 @@ public class CourseController {
 		return new ResponseEntity<>(students, HttpStatus.OK);
 	}
 	
-	/**
-	 * Get all students in Course from database Needs as @RequestParam coursename
-	 * 
-	 * @param json
-	 * @return
-	 */
+//	/**
+//	 * Get all students in Course from database Needs as @RequestParam coursename
+//	 *
+//	 * @param json
+//	 * @return
+//	 */
 	@GetMapping("/course/students")
 	@PreAuthorize("hasAuthority('TEACHER')")
 	public ResponseEntity<?> getAllStudentsByCourseName(@RequestParam(name = "coursename", required = false) String coursename) {
@@ -128,7 +128,7 @@ public class CourseController {
 		return new ResponseEntity<>(students, HttpStatus.OK);
 	}
 
-	/**
+	/*
 	 * Adds student to existing Course Needs course object + student object
 	 * 
 	 * @param json
@@ -143,7 +143,7 @@ public class CourseController {
 				: new ResponseEntity<>("Could not add student to course!", HttpStatus.NOT_IMPLEMENTED);
 	}
 
-	/**
+	/*
 	 * Removes student from Course Needs course object + student object
 	 * 
 	 * @param json
@@ -158,7 +158,7 @@ public class CourseController {
 				: new ResponseEntity<>("Could not remove student from course!", HttpStatus.NOT_MODIFIED);
 	}
 	
-	/**
+	/*
 	 * Get teacher from course from database Needs as @PathVariable course_id
 	 * 
 	 * @param json
@@ -176,7 +176,7 @@ public class CourseController {
 	}
 
 	
-	/**
+	/*
 	 * get teacher from course from database Needs as @RequestParam coursename
 	 * 
 	 * @param json
@@ -193,7 +193,7 @@ public class CourseController {
 		return new ResponseEntity<>(teachers, HttpStatus.OK);
 	}
 
-	/**
+	/*
 	 * Get course from database Needs as @PathVariable course_id
 	 * 
 	 * @param json
@@ -210,7 +210,7 @@ public class CourseController {
 	}
 
 	
-	/**
+	/*
 	 * Returns all or one course
 	 * 
 	 * @param json
@@ -229,7 +229,7 @@ public class CourseController {
 		return new ResponseEntity<>(course, HttpStatus.OK);
 	}
 	
-	/**
+	/*
 	 * Create a new Course Needs course and teacher object
 	 * 
 	 * @param json
@@ -247,7 +247,7 @@ public class CourseController {
 		return new ResponseEntity<>("Could not create course!", HttpStatus.NOT_IMPLEMENTED);
 	}
 
-	/**
+	/*
 	 * Deletes a existing Course Needs course object
 	 * 
 	 * @param json
@@ -263,7 +263,7 @@ public class CourseController {
 
 
 
-	/**
+	/*
 	 * Creates a new exercise in a existing Course Needs course object + exercise
 	 * object
 	 * 
@@ -278,7 +278,7 @@ public class CourseController {
 				: new ResponseEntity<>("Could not create exercise!", HttpStatus.NOT_IMPLEMENTED);
 	}
 
-	/**
+	/*
 	 * Changes already existing (and published) exercises Needs course object +
 	 * exercise object
 	 * 
@@ -293,7 +293,7 @@ public class CourseController {
 				: new ResponseEntity<>("Could not patch exercise!", HttpStatus.NOT_IMPLEMENTED);
 	}
 
-	/**
+	/*
 	 * Deletes existing exercise Needs course object + exercise object
 	 * 
 	 * @param json
@@ -307,7 +307,7 @@ public class CourseController {
 				: new ResponseEntity<>("Could not delete exercise!", HttpStatus.NOT_IMPLEMENTED);
 	}
 
-	/**
+	/*
 	 * Gives a rating to an exercise for one student Needs course object + exercise
 	 * object + student object
 	 * 
@@ -324,7 +324,7 @@ public class CourseController {
 
 	// TODO: change url!
 	// Not tested!
-	/**
+	/*
 	 * Service for checking if logged in user is in course
 	 * Needs course object
 	 * 

@@ -34,7 +34,7 @@ public class UserController {
 	@Autowired
 	private ObjectMapper mapper;
 
-	/**
+	/*
 	 * 
 	 * Get user by username. Needs as @RequestParam username
 	 * 
@@ -57,7 +57,7 @@ public class UserController {
 		return new ResponseEntity<>(userFound, HttpStatus.OK);
 	}
 	
-	/**
+	/*
 	 * 
 	 * Get user by id. Needs as @PathVariable id
 	 * 
@@ -74,7 +74,7 @@ public class UserController {
 		return new ResponseEntity<>(userFound, HttpStatus.OK);
 	}
 
-	/**
+	/*
 	 * Creating new user if not exist Needs as RequestBody user object
 	 * 
 	 * @param json
@@ -94,7 +94,7 @@ public class UserController {
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
-	/**
+	/*
 	 * Updating user Needs as RequestBody user object
 	 * 
 	 * @param json
@@ -110,7 +110,7 @@ public class UserController {
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
-	/**
+	/*
 	 * Deleting user Needs as RequestBody user object
 	 * 
 	 * @param json
@@ -126,7 +126,7 @@ public class UserController {
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
-	/**
+	/*
 	 * 
 	 * Adding role to user. Needs as RequestBody role_id and user_id
 	 * 
@@ -144,7 +144,7 @@ public class UserController {
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
-	/**
+	/*
 	 * 
 	 * Removing role from user. Needs as RequestBody role_id and user_id
 	 * 
