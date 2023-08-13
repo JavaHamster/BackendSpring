@@ -2,7 +2,7 @@ package at.ac.htlinn.api;
 
 import at.ac.htlinn.model.entities.Role;
 import at.ac.htlinn.model.entities.User;
-import at.ac.htlinn.service.impl.UserService;
+import at.ac.htlinn.service.impl.UserServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +29,7 @@ public class UserController {
 	static Logger log = LoggerFactory.getLogger(UserController.class);
 
 	@Autowired
-	private UserService userService;
+	private UserServiceImpl userServiceImpl;
 
 	@Autowired
 	private ObjectMapper mapper;
@@ -45,10 +45,10 @@ public class UserController {
 	@PreAuthorize("hasAuthority('DEV')")
 	public ResponseEntity<?> getUserByUsername(@RequestParam(name = "username", required = false) String username) {
 		if(username == null) {
-			return new ResponseEntity<>(userService.selectMany(), HttpStatus.OK);
+			return new ResponseEntity<>(userServiceImpl.selectMany(), HttpStatus.OK);
 		}
 		log.info("XXXXUSERNAME:" + username + "|");
-		User userFound = userService.findUserByUsername(username);
+		User userFound = userServiceImpl.findUserByUsername(username);
 		log.info("USER:" + userFound);
 
 		if (userFound == null) {
@@ -67,7 +67,7 @@ public class UserController {
 	@GetMapping("/users/{id}")
 	@PreAuthorize("hasAuthority('DEV')")
 	public ResponseEntity<?> getUserById(@PathVariable long id) {
-		User userFound = userService.findUserByID(id);
+		User userFound = userServiceImpl.findUserByID(id);
 		if (userFound == null) {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
@@ -88,7 +88,7 @@ public class UserController {
 		if (user == null) {
 			return new ResponseEntity<>("Could not save user -> wrong data "+ node.toPrettyString(), HttpStatus.BAD_REQUEST);
 		}
-		if (!userService.saveUser(user)) {
+		if (!userServiceImpl.saveUser(user)) {
 			return new ResponseEntity<>("Could not save user -> error in database " + node.toPrettyString(), HttpStatus.BAD_REQUEST);
 		}
 		return new ResponseEntity<>(HttpStatus.OK);
@@ -104,7 +104,7 @@ public class UserController {
 	@PreAuthorize("hasAuthority('DEV')")
 	public ResponseEntity<?> updateUser(@RequestBody JsonNode node) {
 		User user = mapper.convertValue(node.get("user"), User.class);
-		if (!userService.updateUser(user)) {
+		if (!userServiceImpl.updateUser(user)) {
 			return new ResponseEntity<>("Could not update user!", HttpStatus.NOT_FOUND);
 		}
 		return new ResponseEntity<>(HttpStatus.OK);
@@ -120,7 +120,7 @@ public class UserController {
 	@PreAuthorize("hasAuthority('DEV')")
 	public ResponseEntity<?> deleteUser(@RequestBody JsonNode node) {
 		User user = mapper.convertValue(node.get("user"), User.class);
-		if (!userService.deleteUser(user.getId())) {
+		if (!userServiceImpl.deleteUser(user.getId())) {
 			return new ResponseEntity<>("Could not delete user!", HttpStatus.NOT_FOUND);
 		}
 		return new ResponseEntity<>(HttpStatus.OK);
@@ -138,7 +138,7 @@ public class UserController {
 	public ResponseEntity<?> addRole(@RequestBody JsonNode node) {
 		User user = mapper.convertValue(node.get("user"), User.class);
 		Role role = mapper.convertValue(node.get("role"), Role.class);
-		if (!userService.insertUserRole(user.getId(), role.getId())) {
+		if (!userServiceImpl.insertUserRole(user.getId(), role.getId())) {
 			return new ResponseEntity<>("Could not insert new Role!", HttpStatus.NOT_FOUND);
 		}
 		return new ResponseEntity<>(HttpStatus.OK);
@@ -156,7 +156,7 @@ public class UserController {
 	public ResponseEntity<?> removeRole(@RequestBody JsonNode node) {
 		User user = mapper.convertValue(node.get("user"), User.class);
 		Role role = mapper.convertValue(node.get("role"), Role.class);
-		if (!userService.removeUserRole(user.getId(), role.getId())) {
+		if (!userServiceImpl.removeUserRole(user.getId(), role.getId())) {
 			return new ResponseEntity<>("Could not remove Role!", HttpStatus.NOT_FOUND);
 		}
 		return new ResponseEntity<>(HttpStatus.OK);

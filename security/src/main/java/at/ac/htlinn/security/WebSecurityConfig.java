@@ -2,7 +2,7 @@
 package at.ac.htlinn.security;
 
 import at.ac.htlinn.service.CustomPasswordEncoder;
-import at.ac.htlinn.service.impl.MyUserDetailsService;
+import at.ac.htlinn.service.impl.MyUserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -23,7 +23,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	private CustomPasswordEncoder encoder;
 
 	@Autowired
-	private MyUserDetailsService userDetailsService;
+	private MyUserDetailsServiceImpl userDetailsService;
 	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {

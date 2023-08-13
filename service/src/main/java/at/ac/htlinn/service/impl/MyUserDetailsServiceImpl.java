@@ -17,15 +17,15 @@ import org.springframework.stereotype.Service;
 
 
 @Service
-public class MyUserDetailsService implements UserDetailsService {
+public class MyUserDetailsServiceImpl implements UserDetailsService{
 
     @Autowired
-    private UserService userService;
+    private UserServiceImpl userServiceImpl;
 
     @Override
     @Transactional
 	public UserDetails loadUserByUsername(String username) {
-        User user = userService.findUserByUsername(username);
+        User user = userServiceImpl.findUserByUsername(username);
         List<GrantedAuthority> authorities = getUserAuthority(user.getRoles());
         return buildUserForAuthentication(user, authorities);
     }

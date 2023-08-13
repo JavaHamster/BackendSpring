@@ -27,7 +27,7 @@
     <properties>
 		<java.version>11</java.version>
 		<jackson.version>2.15.1</jackson.version>
-		<exec.mainClass>at.ac.htlinn.hamsterProgram..ProjectWebsiteApplication</exec.mainClass>
+		<exec.mainClass>at.ac.htlinn.application.ProjectWebsiteApplication</exec.mainClass>
 	</properties>
 	<dependencies>
 		<dependency>

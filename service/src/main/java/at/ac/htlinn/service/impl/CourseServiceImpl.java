@@ -7,11 +7,12 @@ import java.util.stream.Collectors;
 
 import at.ac.htlinn.database.repositories.*;
 import at.ac.htlinn.model.entities.*;
+import at.ac.htlinn.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class CourseService {
+public class CourseServiceImpl implements CourseService {
 
 	private CourseRepository courseRepository;
 	private ExerciseRepository exerciseRepository;
@@ -20,9 +21,9 @@ public class CourseService {
 	private StudentRepository studentRepository;
 
 	@Autowired
-	public CourseService(CourseRepository courseRepository, ExerciseRepository exerciseRepository,
-			SolutionRepository solutionRepository, TeacherRepository teacherRepository,
-			StudentRepository studentRepository) {
+	public CourseServiceImpl(CourseRepository courseRepository, ExerciseRepository exerciseRepository,
+							 SolutionRepository solutionRepository, TeacherRepository teacherRepository,
+							 StudentRepository studentRepository) {
 		this.courseRepository = courseRepository;
 		this.exerciseRepository = exerciseRepository;
 		this.solutionRepository = solutionRepository;

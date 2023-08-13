@@ -4,7 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import at.ac.htlinn.model.entities.User;
-import at.ac.htlinn.service.impl.UserService;
+import at.ac.htlinn.service.impl.UserServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -26,7 +26,7 @@ public class AuthController {
 	private AuthenticationManager authenticationManager;
 
 	@Autowired
-	private UserService userService;
+	private UserServiceImpl userServiceImpl;
 
 	
 	@PostMapping("/login")
@@ -42,11 +42,11 @@ public class AuthController {
 	// TODO: is checking data with constraints working?
 	@PostMapping("/registration")
 	public ResponseEntity<?> register(@RequestBody User user) throws Exception {
-		User userExists = userService.findUserByUsername(user.getUsername());
+		User userExists = userServiceImpl.findUserByUsername(user.getUsername());
 		if (userExists != null) {
 			return new ResponseEntity<>("Es gibt bereits einen User mit diesem Namen",HttpStatus.BAD_REQUEST); 
 		}
-		userService.saveUser(user);
+		userServiceImpl.saveUser(user);
 		return new ResponseEntity<>(HttpStatus.OK); 
 	}
 	

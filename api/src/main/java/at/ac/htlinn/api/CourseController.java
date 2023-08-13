@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import at.ac.htlinn.model.entities.*;
-import at.ac.htlinn.service.impl.CourseService;
+import at.ac.htlinn.service.impl.CourseServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,7 +28,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class CourseController {
 
 	@Autowired
-	private CourseService courseService;
+	private CourseServiceImpl courseServiceImpl;
 	@Autowired
 	private ObjectMapper mapper;
 	
@@ -43,7 +43,7 @@ public class CourseController {
 	@GetMapping("/students")
 	@PreAuthorize("hasAuthority('DEV')")
 	public ResponseEntity<?> getStudents() {
-		List<User> students = courseService.getAllStudents();
+		List<User> students = courseServiceImpl.getAllStudents();
 		return new ResponseEntity<>(students, HttpStatus.OK);
 	}
 		
@@ -57,8 +57,8 @@ public class CourseController {
 	@GetMapping("/students/{id}")
 	@PreAuthorize("hasAuthority('DEV')")
 	public ResponseEntity<?> getStudentByID(@PathVariable long id) {
-		Student student = courseService.getStudentByID((int)id);
-		if (student == null || courseService.getUserByStudent(student) == null) {
+		Student student = courseServiceImpl.getStudentByID((int)id);
+		if (student == null || courseServiceImpl.getUserByStudent(student) == null) {
 			return new ResponseEntity<>("Student not exisiting!", HttpStatus.NOT_FOUND);
 		}
 		return new ResponseEntity<>(student, HttpStatus.OK);
@@ -75,10 +75,10 @@ public class CourseController {
 	@GetMapping("/course/{courseid}/students/{studentid}")
 	@PreAuthorize("hasAuthority('TEACHER')")
 	public ResponseEntity<?> getStudentInCourseByCourseID(@PathVariable long courseid, @PathVariable long studentid) {
-		Student student = courseService.getStudentByID((int) studentid); 
-		Course course = courseService.getCourseByID((int) studentid); 
-		User user = courseService.getUserByStudent(student); 
-		if (student == null || user == null || !courseService.isUserInCourse(course, user)) {
+		Student student = courseServiceImpl.getStudentByID((int) studentid);
+		Course course = courseServiceImpl.getCourseByID((int) studentid);
+		User user = courseServiceImpl.getUserByStudent(student);
+		if (student == null || user == null || !courseServiceImpl.isUserInCourse(course, user)) {
 			return new ResponseEntity<>("Student not exisiting!", HttpStatus.NOT_FOUND);
 		}
 		student.getUser().setPassword(""); 
@@ -95,9 +95,9 @@ public class CourseController {
 	@GetMapping("/course/{id}/students")
 	@PreAuthorize("hasAuthority('TEACHER')")
 	public ResponseEntity<?> getAllStudentsByCourseID(@PathVariable long id) {
-		Course course = courseService.getCourseByID((int) id); 
+		Course course = courseServiceImpl.getCourseByID((int) id);
 		List<Student> students;
-		if ((students = courseService.getAllStudentsInCourse(course)) == null) {
+		if ((students = courseServiceImpl.getAllStudentsInCourse(course)) == null) {
 			return new ResponseEntity<>("Course not existing or no users in course!", HttpStatus.NOT_FOUND);
 		}
 		students.stream().map(user -> {
@@ -116,9 +116,9 @@ public class CourseController {
 	@GetMapping("/course/students")
 	@PreAuthorize("hasAuthority('TEACHER')")
 	public ResponseEntity<?> getAllStudentsByCourseName(@RequestParam(name = "coursename", required = false) String coursename) {
-		Course course = courseService.getCourseByName(coursename);
+		Course course = courseServiceImpl.getCourseByName(coursename);
 		List<Student> students;
-		if ((students = courseService.getAllStudentsInCourse(course)) == null) {
+		if ((students = courseServiceImpl.getAllStudentsInCourse(course)) == null) {
 			return new ResponseEntity<>("Course not existing or no users in course!", HttpStatus.NOT_FOUND);
 		}
 		students.stream().map(user -> {
@@ -139,7 +139,7 @@ public class CourseController {
 	public ResponseEntity<?> addStudentCourse(@RequestBody JsonNode node) {
 		Course course = mapper.convertValue(node.get("course"), Course.class); 
 		Student student = mapper.convertValue(node.get("student"), Student.class);
-		return courseService.addStudentToCourse(course, student) ? new ResponseEntity<>(HttpStatus.OK)
+		return courseServiceImpl.addStudentToCourse(course, student) ? new ResponseEntity<>(HttpStatus.OK)
 				: new ResponseEntity<>("Could not add student to course!", HttpStatus.NOT_IMPLEMENTED);
 	}
 
@@ -154,7 +154,7 @@ public class CourseController {
 	public ResponseEntity<?> removeStudentCourse(@RequestBody JsonNode node) {
 		Course course = mapper.convertValue(node.get("course"), Course.class); 
 		Student student = mapper.convertValue(node.get("student"), Student.class);
-		return courseService.removeStudentFromCourse(course, student) ? new ResponseEntity<>(HttpStatus.OK)
+		return courseServiceImpl.removeStudentFromCourse(course, student) ? new ResponseEntity<>(HttpStatus.OK)
 				: new ResponseEntity<>("Could not remove student from course!", HttpStatus.NOT_MODIFIED);
 	}
 	
@@ -167,9 +167,9 @@ public class CourseController {
 	@GetMapping("/course/{id}/teachers")
 	@PreAuthorize("hasAuthority('TEACHER')")
 	public ResponseEntity<?> getCourseTeacherByCourseID(@PathVariable long id) {
-		Course course = courseService.getCourseByID((int) id); 
+		Course course = courseServiceImpl.getCourseByID((int) id);
 		List<User> teachers;
-		if ((teachers = courseService.getCourseTeachers(course)) == null) {
+		if ((teachers = courseServiceImpl.getCourseTeachers(course)) == null) {
 			return new ResponseEntity<>("There is no teacher in this course - contact an admin!", HttpStatus.NOT_FOUND);
 		}
 		return new ResponseEntity<>(teachers, HttpStatus.OK);
@@ -185,9 +185,9 @@ public class CourseController {
 	@GetMapping("/course/teachers")
 	@PreAuthorize("hasAuthority('TEACHER')")
 	public ResponseEntity<?> getCourseTeacherByCourseName(@RequestParam(name = "coursename", required = false) String coursename) {
-		Course course = courseService.getCourseByName(coursename); 
+		Course course = courseServiceImpl.getCourseByName(coursename);
 		List<User> teachers;
-		if ((teachers = courseService.getCourseTeachers(course)) == null) {
+		if ((teachers = courseServiceImpl.getCourseTeachers(course)) == null) {
 			return new ResponseEntity<>("There is no teacher in this course - contact an admin!", HttpStatus.NOT_FOUND);
 		}
 		return new ResponseEntity<>(teachers, HttpStatus.OK);
@@ -202,7 +202,7 @@ public class CourseController {
 	@GetMapping("/course/{id}")
 	@PreAuthorize("hasAuthority('TEACHER')")
 	public ResponseEntity<?> getCourseByID(@PathVariable long id) {
-		Course course = courseService.getCourseByID((int) id); 
+		Course course = courseServiceImpl.getCourseByID((int) id);
 		if (course == null) {
 			return new ResponseEntity<>("There is no course with this name!", HttpStatus.NOT_FOUND);
 		}
@@ -220,9 +220,9 @@ public class CourseController {
 	@PreAuthorize("hasAuthority('TEACHER')")
 	public ResponseEntity<?> getCourseByCoursename(@RequestParam(name = "coursename", required = false) String coursename) {
 		if(coursename == null) {
-			return new ResponseEntity<>(courseService.getAllCourses(), HttpStatus.OK);
+			return new ResponseEntity<>(courseServiceImpl.getAllCourses(), HttpStatus.OK);
 		}
-		Course course = courseService.getCourseByName(coursename); 
+		Course course = courseServiceImpl.getCourseByName(coursename);
 		if(course == null) {
 			return new ResponseEntity<>("There is no course with this name!", HttpStatus.NOT_FOUND);
 		}
@@ -240,8 +240,8 @@ public class CourseController {
 	public ResponseEntity<?> createCourse(@RequestBody JsonNode node) {
 		Course course = mapper.convertValue(node.get("course"), Course.class); 
 		Teacher teacher = mapper.convertValue(node.get("teacher"), Teacher.class);
-		if (courseService.createCourse(course) != null) {
-			courseService.setCourseTeacher(course, teacher);
+		if (courseServiceImpl.createCourse(course) != null) {
+			courseServiceImpl.setCourseTeacher(course, teacher);
 			return new ResponseEntity<>(HttpStatus.OK);
 		}
 		return new ResponseEntity<>("Could not create course!", HttpStatus.NOT_IMPLEMENTED);
@@ -257,7 +257,7 @@ public class CourseController {
 	@PreAuthorize("hasAuthority('TEACHER')")
 	public ResponseEntity<?> deleteCourse(@RequestBody JsonNode node) {
 		Course course = mapper.convertValue(node.get("course"), Course.class); 
-		return courseService.deleteCourse(course) ? new ResponseEntity<>(HttpStatus.OK)
+		return courseServiceImpl.deleteCourse(course) ? new ResponseEntity<>(HttpStatus.OK)
 				: new ResponseEntity<>("Could not delete course!", HttpStatus.NOT_MODIFIED);
 	}
 
@@ -274,7 +274,7 @@ public class CourseController {
 	@PreAuthorize("hasAuthority('TEACHER')")
 	public ResponseEntity<?> createExercise(@RequestBody JsonNode node) {
 		Exercise exercise = mapper.convertValue(node.get("exercise"), Exercise.class);
-		return courseService.createExercise(exercise) != null ? new ResponseEntity<>(HttpStatus.OK)
+		return courseServiceImpl.createExercise(exercise) != null ? new ResponseEntity<>(HttpStatus.OK)
 				: new ResponseEntity<>("Could not create exercise!", HttpStatus.NOT_IMPLEMENTED);
 	}
 
@@ -289,7 +289,7 @@ public class CourseController {
 	@PreAuthorize("hasAuthority('TEACHER')")
 	public ResponseEntity<?> patchExercise(@RequestBody JsonNode node) {
 		Exercise exercise = mapper.convertValue(node.get("exericse"), Exercise.class);
-		return courseService.createExercise(exercise) != null ? new ResponseEntity<>(HttpStatus.OK)
+		return courseServiceImpl.createExercise(exercise) != null ? new ResponseEntity<>(HttpStatus.OK)
 				: new ResponseEntity<>("Could not patch exercise!", HttpStatus.NOT_IMPLEMENTED);
 	}
 
@@ -303,7 +303,7 @@ public class CourseController {
 	@PreAuthorize("hasAuthority('TEACHER')")
 	public ResponseEntity<?> deleteExercise(@RequestBody JsonNode node) {
 		Exercise exercise = mapper.convertValue(node.get("exercise"), Exercise.class);
-		return courseService.deleteExercise(exercise) ? new ResponseEntity<>(HttpStatus.OK)
+		return courseServiceImpl.deleteExercise(exercise) ? new ResponseEntity<>(HttpStatus.OK)
 				: new ResponseEntity<>("Could not delete exercise!", HttpStatus.NOT_IMPLEMENTED);
 	}
 
@@ -339,7 +339,7 @@ public class CourseController {
 			return new ResponseEntity<>("Course not found!", HttpStatus.NOT_FOUND); 
 		}
 		User user = mapper.convertValue(node.get("user"), User.class); 
-		if(courseService.isUserInCourse(course, user)) {
+		if(courseServiceImpl.isUserInCourse(course, user)) {
 			return new ResponseEntity<>(HttpStatus.OK); 
 		}
 		return new ResponseEntity<>("User not in course!", HttpStatus.NOT_FOUND); 

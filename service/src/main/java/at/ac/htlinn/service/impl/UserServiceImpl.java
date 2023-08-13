@@ -9,19 +9,20 @@ import at.ac.htlinn.database.repositories.UserRepository;
 import at.ac.htlinn.model.entities.Role;
 import at.ac.htlinn.model.entities.User;
 import at.ac.htlinn.service.CustomPasswordEncoder;
+import at.ac.htlinn.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserService {
+public class UserServiceImpl implements UserService {
 
 	private UserRepository userRepository;
 	private RoleRepository roleRepository;
 	private CustomPasswordEncoder customPasswordEncoder;
 
 	@Autowired
-	public UserService(UserRepository userRepository, RoleRepository roleRepository,
-			CustomPasswordEncoder customPasswordEncoder) {
+	public UserServiceImpl(UserRepository userRepository, RoleRepository roleRepository,
+						   CustomPasswordEncoder customPasswordEncoder) {
 		this.userRepository = userRepository;
 		this.roleRepository = roleRepository;
 		this.customPasswordEncoder = customPasswordEncoder;
